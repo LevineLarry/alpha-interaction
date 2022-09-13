@@ -30,3 +30,15 @@ a {
     background: black;
   }
 }
+
+.data-card-bg {
+  background: linear-gradient(136.05deg, #16192d 7.27%, #051317 92.2%);
+}
+
+.data-card-border {
+  background: linear-gradient(138.68deg, #31748a 4.03%, #0d2228 93.46%);
+}
+
+.chart-card-bg {
+  background: linear-gradient(136.05deg, rgba(90, 106, 188, 0.2) 7.27%, rgba(25, 97, 120, 0.162) 92.2%);
+}

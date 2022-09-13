@@ -1,10 +1,19 @@
+import Link from "next/link"
+
 const Navbar = () => {
     return (
-        <div className="w-full px-36 h-12 z-10 bg-[#0f1b32] flex flex-row justify-between">
-            <img className="h-full object-cover" src="logo.png"></img>
+        <div className="w-full py-2 px-36 h-16 z-10 bg-[#0f1b32] flex flex-row justify-between shadow-lg">
+            <Link href="/">
+                <img className="h-full object-cover cursor-pointer" src="logo.png"></img>
+            </Link>
+
             <div className="flex flex-row gap-10">
-                <p className="text-white font-[Audiowide] my-auto">Explore</p>
-                <p className="text-white font-[Audiowide] my-auto">Store</p>
+                <Link href="/explore">
+                    <p className="text-white font-[Audiowide] my-auto cursor-pointer transition-all hover:scale-110">Explore</p>
+                </Link>
+                <Link href="https://proxima-aerospace.square.site">
+                    <p className="text-white font-[Audiowide] my-auto cursor-pointer transition-all hover:scale-110">Store</p>
+                </Link>
             </div>
         </div>
     )
