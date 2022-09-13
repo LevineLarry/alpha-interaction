@@ -11,6 +11,10 @@ const Explore = () => {
     const [altData, setAltData] = useState([])
     const [rollData, setRollData] = useState([])
     const [velocityData, setVelocityData] = useState([])
+    const [maxVelocity, setMaxVelocity] = useState(0)
+    const [maxAlt, setMaxAlt] = useState(0)
+    const [maxAcc, setMaxAcc] = useState(0)
+    const [timeToApogee, setTimeToApogee] = useState(0)
 
     async function getData() {
         let temp = await Serial.getData()
@@ -22,11 +26,16 @@ const Explore = () => {
         let tempRoll = []
         let tempVelocity = []
 
+        let tempMaxV = 0, tempMaxAlt = 0, tempMaxAcc = 0, tempTimeToApogee = 0
+
         temp.forEach(item => {
             tempAcc.push([item.ts, item.a])
             tempAlt.push([item.ts, item.alt])
             tempRoll.push([item.ts, item.g])
             tempVelocity.push([item.ts, item.a])
+
+            if(item.alt > tempMaxAlt) tempMaxAlt = item.alt
+            if(item.a > tempMaxAcc) tempMaxAcc = item.a
         })
 
         setAccData([{
@@ -45,6 +54,9 @@ const Explore = () => {
             name: "Velocity",
             data: tempVelocity
         }])
+
+        setMaxAcc(tempMaxAcc)
+        setMaxAlt(tempMaxAlt)
     }
 
     const options = {
@@ -76,13 +88,13 @@ const Explore = () => {
                 <Navbar></Navbar>
                 <div className="flex flex-row gap-10 mx-auto mt-10">
                     <DataCard name="Top Speed" value="120mph"></DataCard>
-                    <DataCard name="Max Altitude" value="3,500ft"></DataCard>
-                    <DataCard name="Max Acceleration" value="4.2g"></DataCard>
+                    <DataCard name="Max Altitude" value={maxAlt.toLocaleString("en-us") + "m"}></DataCard>
+                    <DataCard name="Max Acceleration" value={maxAcc.toLocaleString("en-us", {maximumFractionDigits: 2}) + "m/s²"}></DataCard>
                     <DataCard name="Time to Apogee" value="15sec"></DataCard>
                 </div>
                 <div className="grid grid-cols-2 gap-10 mx-32 my-10">
                     <DataPlot title="Altitude" series={altData} unit="m"></DataPlot>
-                    <DataPlot title="Acceleration" series={accData} unit="m/s^2"></DataPlot>
+                    <DataPlot title="Acceleration" series={accData} unit="m/s²"></DataPlot>
                     <DataPlot title="Roll Rate" series={rollData} unit="deg/s"></DataPlot>
                     <DataPlot title="Velocity" series={velocityData} unit="m/s"></DataPlot>
                 </div>
