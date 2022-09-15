@@ -40,6 +40,9 @@ const DataPlot = ({title, series, unit}) => {
                 style: {
                     colors: "#5989C1",
                     fontSize: "1.75vh"
+                },
+                formatter: function(value) {
+                    return value.toLocaleString("en-us", {minimumFractionDigits: 2})
                 }
             },
             title: {
