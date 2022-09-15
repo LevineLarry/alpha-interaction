@@ -4,6 +4,7 @@ import {useState, useEffect} from "react"
 import DataCard from "../../components/DataCard"
 var Serial = require("../../lib/serial")
 import DataPlot from "../../components/DataPlot"
+import UploadButton from "../../components/UploadButton"
 
 const Explore = () => {
     const [data, setData] = useState([])
@@ -90,7 +91,7 @@ const Explore = () => {
         )
     } else {
         return (
-            <main className="min-w-screen min-h-screen bg-[#040c17] flex flex-col">
+            <main className="min-w-screen min-h-screen bg-[#040c17] flex flex-col font-[Poppins]">
                 <Navbar></Navbar>
                 <div className="flex flex-row gap-10 mx-auto mt-10">
                     <DataCard name="Top Speed" value={maxVelocity.toLocaleString("en-us") + "m/s"}></DataCard>
@@ -104,6 +105,7 @@ const Explore = () => {
                     <DataPlot title="Roll Rate" series={rollData} unit="deg/s"></DataPlot>
                     <DataPlot title="Velocity" series={velocityData} unit="m/s"></DataPlot>
                 </div>
+                <UploadButton></UploadButton>
             </main>
         )
     }

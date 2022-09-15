@@ -11,6 +11,9 @@ const Navbar = () => {
                 <Link href="/explore">
                     <p className="text-white font-[Audiowide] my-auto cursor-pointer transition-all hover:scale-110">Explore</p>
                 </Link>
+                <Link href="/cloud">
+                    <p className="text-white font-[Audiowide] my-auto cursor-pointer transition-all hover:scale-110">Cloud</p>
+                </Link>
                 <Link href="https://proxima-aerospace.square.site">
                     <p className="text-white font-[Audiowide] my-auto cursor-pointer transition-all hover:scale-110">Store</p>
                 </Link>

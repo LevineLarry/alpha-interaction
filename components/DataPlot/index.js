@@ -71,7 +71,7 @@ const DataPlot = ({title, series, unit}) => {
     }
 
     return (
-        <div className="flex flex-col gap-5 chart-card-bg p-5 rounded-2xl">
+        <div className="flex flex-col gap-5 chart-card-bg p-5 rounded-2xl z-0">
             <p className="font-[Audiowide] text-3xl text-[#96C6FF]">{title}</p>
             <Chart
                 options={options}
