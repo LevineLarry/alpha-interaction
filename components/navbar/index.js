@@ -4,7 +4,7 @@ const Navbar = () => {
     return (
         <div className="w-full py-2 px-36 h-16 z-10 bg-[#0f1b32] flex flex-row justify-between shadow-lg">
             <Link href="/">
-                <img className="h-full object-cover cursor-pointer" src="logo.png"></img>
+                <img className="h-full object-cover cursor-pointer" src="/logo.png"></img>
             </Link>
 
             <div className="flex flex-row gap-10">

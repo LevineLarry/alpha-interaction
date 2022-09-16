@@ -10,7 +10,9 @@
   },
   "dependencies": {
     "apexcharts": "^3.35.5",
+    "axios": "^0.27.2",
     "daisyui": "^2.26.0",
+    "mysql2": "^2.3.3",
     "next": "12.3.0",
     "react": "18.2.0",
     "react-apexcharts": "^1.4.0",

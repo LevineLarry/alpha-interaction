@@ -73,6 +73,7 @@ const Explore = () => {
         setMaxAcc(tempMaxAcc)
         setMaxAlt(tempMaxAlt)
         setMaxVelocity(maxV)
+        setTimeToApogee(15)
     }
 
     if(data.length == 0) {
@@ -97,7 +98,7 @@ const Explore = () => {
                     <DataCard name="Top Speed" value={maxVelocity.toLocaleString("en-us") + "m/s"}></DataCard>
                     <DataCard name="Max Altitude" value={maxAlt.toLocaleString("en-us") + "m"}></DataCard>
                     <DataCard name="Max Acceleration" value={maxAcc.toLocaleString("en-us", {maximumFractionDigits: 2}) + "m/s²"}></DataCard>
-                    <DataCard name="Time to Apogee" value="15sec"></DataCard>
+                    <DataCard name="Time to Apogee" value={timeToApogee + "sec"}></DataCard>
                 </div>
                 <div className="grid grid-cols-2 gap-10 mx-32 mt-10 mb-20">
                     <DataPlot title="Altitude" series={altData} unit="m"></DataPlot>
@@ -105,7 +106,7 @@ const Explore = () => {
                     <DataPlot title="Roll Rate" series={rollData} unit="deg/s"></DataPlot>
                     <DataPlot title="Velocity" series={velocityData} unit="m/s"></DataPlot>
                 </div>
-                <UploadButton></UploadButton>
+                <UploadButton accData={accData} altData={altData} rollData={rollData} velocityData={velocityData} maxAlt={maxAlt} maxVelocity={maxVelocity} maxAcc={maxAcc} timeToApogee={timeToApogee}></UploadButton>
             </main>
         )
     }
