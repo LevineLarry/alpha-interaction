@@ -3,7 +3,6 @@ import { useRouter } from "next/router"
 
 const Navbar = () => {
     const router = useRouter()
-    console.log(router.pathname)
 
     return (
         <div className="w-full py-2 px-36 h-16 z-10 bg-[#0f1b32] flex flex-row justify-between shadow-lg">

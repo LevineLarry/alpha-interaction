@@ -59,12 +59,12 @@ const DataPlot = ({title, series, unit}) => {
             theme: "dark",
             x: {
                 formatter: function(val) {
-                    return "T+" + val + "s"
+                    return "T+" + val.toFixed(2) + "s"
                 }
             },
             y: {
                 formatter: function(val) {
-                    return val + unit
+                    return val.toFixed(2) + unit
                 }
             }
         }
