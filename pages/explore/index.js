@@ -99,7 +99,7 @@ const Explore = () => {
                     <DataCard name="Max Acceleration" value={maxAcc.toLocaleString("en-us", {maximumFractionDigits: 2}) + "m/s²"}></DataCard>
                     <DataCard name="Time to Apogee" value="15sec"></DataCard>
                 </div>
-                <div className="grid grid-cols-2 gap-10 mx-32 my-10">
+                <div className="grid grid-cols-2 gap-10 mx-32 mt-10 mb-20">
                     <DataPlot title="Altitude" series={altData} unit="m"></DataPlot>
                     <DataPlot title="Acceleration" series={accData} unit="m/s²"></DataPlot>
                     <DataPlot title="Roll Rate" series={rollData} unit="deg/s"></DataPlot>
