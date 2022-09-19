@@ -42,16 +42,40 @@ const Explore = () => {
         let v = 0;
         let maxV = 0;
         let dataLength = temp.length
+        
+        let lastAlt = null
+        let lastTime = null
+        tempAlt.forEach(point => {
+            let d_alt = 0
+            let v = 0
+            let dt = 0
+
+            if(lastAlt == null) {
+                lastAlt = point[1]
+                d_alt = 0
+                lastTime = 0
+                dt = 0
+            } else {
+                d_alt = point[1] - lastAlt
+                lastAlt = point[1]
+                dt = point[0] - lastTime
+                lastTime = point[0]
+                v = d_alt / dt
+            }
+
+            tempVelocity.push([lastTime, v])
+        })
+
+        /*
         for(let i = 1; i < dataLength; i++) {
-            let dvAlt = (tempAlt[i][1] - tempAlt[i-1][1]) / (tempAlt[i][0] - tempAlt[i-1][0])
-            let dvAcc = tempAcc[i][1] * (tempAcc[i][0] - tempAcc[i-1][0])
-            v += (dvAlt + dvAcc) / 2 //Average the change in velocity found by finding the derivative of the altitude data and the integral of the accelerometer data
+            v += (tempAlt[i][1] - tempAlt[i-1][1]) / (tempAlt[i][0] - tempAlt[i-1][0])
 
             if(Math.abs(v) > maxV) maxV = Math.abs(v)
 
             if(i==0) tempVelocity.push([0, 0])
             else tempVelocity.push([tempAlt[i][0], v]) 
         }
+        */
 
         setAccData([{
             name: "Acceleration",
