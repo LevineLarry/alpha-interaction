@@ -42,3 +42,22 @@ a {
 .chart-card-bg {
   background: linear-gradient(136.05deg, rgba(90, 106, 188, 0.2) 7.27%, rgba(25, 97, 120, 0.162) 92.2%);
 }
+
+.cloud-card-bg {
+  background: linear-gradient(136.05deg, rgba(90, 106, 188, 0.48) 7.27%, rgba(25, 97, 120, 0.3888) 92.2%);
+  backdrop-filter: blur(16.91px);
+}
+
+.cloud-public-toggle-active {
+  background: linear-gradient(136.05deg, rgba(90, 106, 188, 0.4) 7.27%, rgba(25, 97, 120, 0.324) 92.2%);
+  color: #96C6FF;
+}
+
+.cloud-public-toggle-bg {
+  background: linear-gradient(136.05deg, rgba(90, 106, 188, 0.24) 7.27%, rgba(25, 97, 120, 0.1944) 92.2%);
+  backdrop-filter: blur(6px);
+}
+
+.cloud-item-text {
+  -webkit-mask-image: linear-gradient(0deg, transparent, red 50px);
+}
